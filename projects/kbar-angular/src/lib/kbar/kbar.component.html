@@ -1,0 +1,8 @@
+<ng-template [ngIf]="isOpen">
+  <kbar-overlay (handleClick)="handleClose()"></kbar-overlay>
+
+  <kbar-positioner>
+    <kbar-search></kbar-search>
+    <kbar-results></kbar-results>
+  </kbar-positioner>
+</ng-template>

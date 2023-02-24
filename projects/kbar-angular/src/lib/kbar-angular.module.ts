@@ -1,10 +1,21 @@
 import { NgModule } from '@angular/core';
-import { KbarAngularComponent } from './kbar-angular.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { OverlayComponent } from './overlay/overlay.component';
+import { PositionerComponent } from './positioner/positioner.component';
+import { SearchComponent } from './search/search.component';
+import { KbarComponent } from './kbar/kbar.component';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
-  declarations: [KbarAngularComponent, OverlayComponent],
-  imports: [],
-  exports: [KbarAngularComponent, OverlayComponent],
+  declarations: [
+    KbarComponent,
+    OverlayComponent,
+    PositionerComponent,
+    SearchComponent,
+    KbarComponent,
+    ResultsComponent,
+  ],
+  imports: [BrowserModule],
+  exports: [KbarComponent],
 })
 export class KbarAngularModule {}

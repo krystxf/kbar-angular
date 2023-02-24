@@ -1,16 +1,10 @@
 import { NgModule } from '@angular/core';
 import { KbarAngularComponent } from './kbar-angular.component';
-
-
+import { OverlayComponent } from './overlay/overlay.component';
 
 @NgModule({
-  declarations: [
-    KbarAngularComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    KbarAngularComponent
-  ]
+  declarations: [KbarAngularComponent, OverlayComponent],
+  imports: [],
+  exports: [KbarAngularComponent, OverlayComponent],
 })
-export class KbarAngularModule { }
+export class KbarAngularModule {}

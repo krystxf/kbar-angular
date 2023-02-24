@@ -4,11 +4,11 @@
   left: 50%;
   z-index: 505;
   transform: translate(-50%, -50%);
+  width: calc(100% - 40px);
+  max-width: 600px;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 
   background-color: #fcfcfc;
   border-radius: 8px;

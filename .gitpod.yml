@@ -1,0 +1,30 @@
+ports:
+  - port: 4200
+    onOpen: open-browser
+    visibility: public
+    name: App
+
+tasks:
+  - name: Lib build watch
+    init: |
+      nvm install
+      nvm use
+      npm install -g @angular/cli > /dev/null
+      npm install 
+      gp sync-done download 
+    command: ng build kbar-angular --watch
+
+  - name: Documentation
+    init: |
+      gp sync-await download
+      nvm use
+    command: npm run example:start
+
+vscode:
+  extensions:
+    - angular.ng-template
+    - esbenp.prettier-vscode
+    - eamodio.gitlens
+    - wix.vscode-import-cost
+    - bierner.markdown-preview-github-styles
+    - editorconfig.editorconfig

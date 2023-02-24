@@ -1,0 +1,16 @@
+.positioner {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  z-index: 505;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #fcfcfc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}

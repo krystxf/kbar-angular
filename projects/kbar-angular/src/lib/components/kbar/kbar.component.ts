@@ -1,6 +1,6 @@
 import { Component, HostListener, Input } from '@angular/core';
-import { KbarAngularService } from '../kbar-angular.service';
-import { Action } from '../types/actions';
+import { KbarAngularService } from '../../kbar-angular.service';
+import { Action } from '../../types/actions';
 
 @Component({
   selector: 'kbar',

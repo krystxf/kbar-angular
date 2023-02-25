@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { KbarAngularService } from '../kbar-angular.service';
+import { KbarAngularService } from '../../kbar-angular.service';
 
 @Component({
   selector: 'kbar-search',

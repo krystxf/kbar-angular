@@ -4,8 +4,8 @@
 
 export * from './lib/kbar-angular.service';
 export * from './lib/kbar-angular.module';
-export * from './lib/kbar/kbar.component';
-export * from './lib/overlay/overlay.component';
-export * from './lib/positioner/positioner.component';
-export * from './lib/search/search.component';
-export * from './lib/results/results.component';
+export * from './lib/components/kbar/kbar.component';
+export * from './lib/components/overlay/overlay.component';
+export * from './lib/components/positioner/positioner.component';
+export * from './lib/components/search/search.component';
+export * from './lib/components/results/results.component';

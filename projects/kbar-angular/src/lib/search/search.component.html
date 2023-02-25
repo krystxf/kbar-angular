@@ -1,1 +1,7 @@
-<input type="text" placeholder="Type a command or search..." />
+<input
+  type="text"
+  name="query"
+  placeholder="Type a command or search..."
+  (keyup)="getValue($event)"
+  [value]="kbarServiceInstance.query"
+/>

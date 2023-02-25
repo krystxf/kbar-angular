@@ -15,7 +15,7 @@ export class OverlayComponent {
 
   constructor(private _kbarAngularService: KbarAngularService) {}
 
-  onClick(event: MouseEvent) {
+  onClick(event: MouseEvent): void {
     this._kbarAngularService.handleClose();
 
     this.handleClick.emit(event);

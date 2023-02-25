@@ -1,7 +1,7 @@
 export type Action = {
   name: string;
+  perform: (event: MouseEvent) => void;
   keywords?: string[];
-  perform: () => void;
   onClickClose?: boolean | undefined | null;
   icon?: any | undefined | null;
   group?: string | undefined | null;

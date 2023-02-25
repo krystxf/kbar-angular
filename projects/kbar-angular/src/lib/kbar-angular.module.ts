@@ -5,6 +5,7 @@ import { PositionerComponent } from './positioner/positioner.component';
 import { SearchComponent } from './search/search.component';
 import { KbarComponent } from './kbar/kbar.component';
 import { ResultsComponent } from './results/results.component';
+import { KbarAngularService } from './kbar-angular.service';
 
 @NgModule({
   declarations: [
@@ -12,10 +13,16 @@ import { ResultsComponent } from './results/results.component';
     OverlayComponent,
     PositionerComponent,
     SearchComponent,
-    KbarComponent,
     ResultsComponent,
   ],
   imports: [BrowserModule],
-  exports: [KbarComponent],
+  providers: [KbarAngularService],
+  exports: [
+    KbarComponent,
+    OverlayComponent,
+    PositionerComponent,
+    SearchComponent,
+    ResultsComponent,
+  ],
 })
 export class KbarAngularModule {}

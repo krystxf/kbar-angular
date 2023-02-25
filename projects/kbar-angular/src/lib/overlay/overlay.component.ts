@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { KbarAngularService } from '../kbar-angular.service';
 
 @Component({
   selector: 'kbar-overlay',
@@ -12,7 +13,11 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class OverlayComponent {
   @Output() handleClick: EventEmitter<MouseEvent> = new EventEmitter();
 
+  constructor(private _kbarAngularService: KbarAngularService) {}
+
   onClick(event: MouseEvent) {
+    this._kbarAngularService.handleClose();
+
     this.handleClick.emit(event);
   }
 }

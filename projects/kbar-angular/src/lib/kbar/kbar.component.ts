@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { KbarAngularService } from '../kbar-angular.service';
 
 @Component({
   selector: 'kbar',
@@ -6,35 +7,25 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./kbar.component.css'],
 })
 export class KbarComponent {
-  isOpen = true;
+  constructor(private _kbarAngularService: KbarAngularService) {}
+
+  get kbarServiceInstance(): KbarAngularService {
+    return this._kbarAngularService;
+  }
 
   @HostListener('document:keydown.control.k', ['$event'])
   onCtrlK(event: KeyboardEvent) {
-    if (this.isOpen) return;
+    if (this._kbarAngularService.isOpen) return;
 
     event.preventDefault();
-    this.handleOpen();
-
-    return false;
+    this._kbarAngularService.handleOpen();
   }
 
   @HostListener('document:keydown.escape', ['$event'])
   onEsc(event: KeyboardEvent) {
-    if (!this.isOpen) return;
+    if (!this._kbarAngularService.isOpen) return;
 
     event.preventDefault();
-    this.handleClose();
-  }
-
-  handleClose() {
-    if (!this.isOpen) return;
-
-    this.isOpen = false;
-  }
-
-  handleOpen() {
-    if (this.isOpen) return;
-
-    this.isOpen = true;
+    this._kbarAngularService.handleClose();
   }
 }

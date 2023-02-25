@@ -2,7 +2,7 @@
 
 Angular library inspired by [kbar React library](https://github.com/timc1/kbar)
 
-Press `ctrl` + `k` to show kbar menu for faster navigation on your site.
+Provides plug-n-play tool for efficient navigation on your website.
 
 ## Features
 
@@ -10,7 +10,43 @@ todo
 
 ## Usage
 
-todo
+Add `KbarAngularModule` to `app.module.ts` to `imports` array
+
+_to access components service, add `KbarAngularService` to `providers` array_
+
+**component class**
+
+```typescript
+actions = [
+  {
+    name: "Home",
+    keywords: ["home"],
+    perform: () => {
+      document.location.href = "/";
+    },
+  },
+  {
+    name: "Console.log",
+    keywords: ["log", "console"],
+    perform: () => {
+      console.log("Hello world!");
+    },
+  },
+];
+```
+
+**component template**
+
+```html
+<kbar [actions]="actions">
+  <kbar-overlay />
+
+  <kbar-positioner>
+    <kbar-search></kbar-search>
+    <kbar-results></kbar-results>
+  </kbar-positioner>
+</kbar>
+```
 
 ## Development
 

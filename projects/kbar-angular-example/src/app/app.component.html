@@ -1,5 +1,3 @@
-example app
-
 <kbar [actions]="actions">
   <kbar-overlay />
 
@@ -8,3 +6,32 @@ example app
     <kbar-results></kbar-results>
   </kbar-positioner>
 </kbar>
+
+<div class="wrapper" [ngClass]="{dark: darkMode, light: !darkMode}">
+  <main class="content">
+    <h1>kbar-angular</h1>
+    <p>
+      <a href="https://github.com/krystxf/kbar-angular" target="_blank">kbar</a> is a fully extensible command+k
+      interface for your site.
+      <br />
+      <br />
+      try it out by pressing <kbd>ctrl</kbd> + <kbd>k</kbd>
+    </p>
+
+    <h2>Features</h2>
+    // todo
+
+    <h2>Example</h2>
+    <h3>component class</h3>
+    <pre>
+      <code [innerText]="CLASS_EXAMPLE"></code>
+    </pre>
+    <h3>component template</h3>
+    <pre>
+      <code [innerText]="TEMPLATE_EXAMPLE"></code>
+    </pre>
+
+    <h2>Customization</h2>
+    // todo
+  </main>
+</div>

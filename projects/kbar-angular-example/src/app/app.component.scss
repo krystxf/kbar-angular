@@ -1,0 +1,72 @@
+@use "sass:map";
+@import "../variables.scss";
+
+.dark {
+  background-color: map.get($dark-theme, "bg");
+  color: map.get($dark-theme, "text");
+
+  kbd,
+  code {
+    background-color: map.get($dark-theme, "kbd-bg");
+    color: map.get($dark-theme, "kbd-text");
+  }
+}
+
+.light {
+  background-color: map.get($light-theme, "bg");
+  color: map.get($light-theme, "text");
+
+  kbd,
+  code {
+    background-color: map.get($light-theme, "kbd-bg");
+    color: map.get($light-theme, "kbd-text");
+  }
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+
+  transition: background-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+
+.content {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+
+  h1 {
+    font-size: 2rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  a {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  img {
+    --background: #fff;
+    --foreground: #ccc;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+kbd {
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: monospace;
+}
+
+code {
+  display: block;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: monospace;
+}

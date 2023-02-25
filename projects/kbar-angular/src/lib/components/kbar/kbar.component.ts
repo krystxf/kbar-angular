@@ -21,8 +21,6 @@ export class KbarComponent {
 
   @HostListener('document:keydown.control.k', ['$event'])
   onCtrlK(event: KeyboardEvent): void | boolean {
-    if (this._kbarService.isOpen) return;
-
     event.preventDefault();
     this._kbarService.handleOpen();
   }

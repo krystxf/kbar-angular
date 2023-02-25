@@ -11,12 +11,14 @@ export class AppComponent {
   actions = [
     {
       name: 'Home',
+      keywords: ['home'],
       perform: () => {
         document.location.href = '/';
       },
     },
     {
       name: 'Console.log',
+      keywords: ['log', 'console'],
       perform: () => {
         console.log('Hello world!');
       },

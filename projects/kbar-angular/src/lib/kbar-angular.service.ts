@@ -6,24 +6,18 @@ import getMatches from './functions/matches';
   providedIn: 'root',
 })
 export class KbarAngularService {
-  isOpen: boolean = true;
+  isOpen: boolean = false;
   actions: Action[] = [];
   results: Action[] = [];
   query: string = '';
 
-  constructor() {}
-
   handleClose(): void {
-    if (!this.isOpen) return;
-
     this.isOpen = false;
     this.query = ''; // reset query
     this.results = this.actions; // reset results
   }
 
   handleOpen(): void {
-    if (this.isOpen) return;
-
     this.isOpen = true;
   }
 

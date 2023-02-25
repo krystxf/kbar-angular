@@ -21,8 +21,13 @@ jobs:
 
     strategy:
       matrix:
-        version: [14.20.1, 16.x, 18.x]
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        version: [14.20.1, 16.x, 17.x, 18.x]
+        os: [ubuntu-latest]
+        include:
+          - os: windows-latest
+            version: 16.x
+          - os: macos-latest
+            version: 16.x
 
     steps:
       - uses: actions/checkout@v3

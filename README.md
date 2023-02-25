@@ -10,9 +10,13 @@ todo
 
 ## Usage
 
-Add `KbarAngularModule` to `app.module.ts` to `imports` array
+```bash
+npm i kbar-angular
+```
 
-_to access components service, add `KbarAngularService` to `providers` array_
+- Add `KbarAngularModule` to `app.module.ts` to `imports` array
+
+- *to access components service, add `KbarAngularService` to `providers` array*
 
 **component class**
 

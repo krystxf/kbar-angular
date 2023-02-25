@@ -1,0 +1,39 @@
+name: Build lib
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'gh-actions'
+    paths-ignore:
+      - '**/*.md'
+
+  pull_request:
+    branches:
+      - 'main'
+    paths-ignore:
+      - '**/*.md'
+
+jobs:
+  build:
+    name: Build 
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        version: [14.20.1, 16.x, 18.x]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.version }}
+      
+      - name: Install dependencies
+        run: npm i
+        
+      - name: Build
+        run: npm run lib:build

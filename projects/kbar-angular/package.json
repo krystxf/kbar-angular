@@ -6,7 +6,7 @@
     "command bar",
     "search"
   ],
-  "node" : ">=16.0.0",
+  "node" : ">=14.20.1",
   "author": "Krystof Kratky <krystof.kratky2003@gmail.com>",
   "license": "GPL-3.0",
   "repository": {

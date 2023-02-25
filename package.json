@@ -1,12 +1,6 @@
 {
   "name": "kbar-angular",
-  "version": "0.0.1-alpha", 
-  "description": "Angular component library for kbar - tool for efficient navigation in your app",
-  "keywords": [
-    "command bar",
-    "search"
-  ],
-  "node" : ">=16.0.0",
+  "node": ">=16.0.0",
   "author": "Krystof Kratky <krystof.kratky2003@gmail.com>",
   "license": "GPL-3.0",
   "repository": {

@@ -1,17 +1,17 @@
 import { Component, Input } from '@angular/core';
 import { KbarAngularService } from '../../kbar-angular.service';
 import { Action } from '../../types/actions';
-import hasChildren from '../../functions/hasChildren';
 
 @Component({
   selector: 'kbar-result',
   styleUrls: ['./result.component.css'],
   template: `
     <li
-      (click)="handlePerform($event)"
+      (click)="kbarServiceInstance.handlePerform(action, $event)"
       [class.item]="!unstyled"
       [style]="style"
       [ngStyle]="ngStyle"
+      [class.active]="kbarServiceInstance.focusedIndex === index"
     >
       <ng-container
         *ngIf="parent && parent.id !== this.kbarServiceInstance.submenu"
@@ -29,6 +29,7 @@ export class ResultComponent {
   @Input() style: any = {};
   @Input() ngStyle: { [klass: string]: any } = {};
   @Input() action!: Action;
+  @Input() index!: number;
 
   constructor(private _kbarService: KbarAngularService) {}
 
@@ -45,28 +46,4 @@ export class ResultComponent {
       ) || null
     );
   }
-
-  handlePerform = (event: MouseEvent): void => {
-    if (typeof this.action?.perform === 'function') this.action.perform(event);
-
-    const isParent = hasChildren(this.action.id, this._kbarService.actions);
-
-    if (isParent) {
-      this._kbarService.submenu = this.action.id;
-      this._kbarService.query = '';
-
-      // only close kbar if explicitly specified
-      if (this.action.closeOnSelect === true) {
-        console.warn(
-          'Element has children, are you sure you want to close the kbar?'
-        );
-
-        this._kbarService.handleClose();
-      }
-    }
-    // Close the kbar if the action doesn't specify otherwise
-    else if (this.action.closeOnSelect !== false) {
-      this._kbarService.handleClose();
-    }
-  };
 }

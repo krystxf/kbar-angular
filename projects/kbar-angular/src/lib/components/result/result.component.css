@@ -14,7 +14,8 @@
   border-left-width: 2px;
 }
 
-.item:hover {
+.item:hover,
+.active {
   background-color: #eee;
 
   border-left-color: #000;

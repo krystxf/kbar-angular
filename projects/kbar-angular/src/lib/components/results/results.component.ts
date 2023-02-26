@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { KbarAngularService } from '../../kbar-angular.service';
-import { Action } from '../../types/actions';
-import hasChildren from '../../functions/hasChildren';
 
 @Component({
   selector: 'kbar-results',
@@ -9,11 +7,12 @@ import hasChildren from '../../functions/hasChildren';
   template: `
     <ul>
       <kbar-result
-        *ngFor="let action of kbarServiceInstance.results"
+        *ngFor="let action of kbarServiceInstance.results; let i = index"
         [action]="action"
         [class.item]="!unstyled"
         [style]="style"
         [ngStyle]="ngStyle"
+        [index]="i"
       ></kbar-result>
     </ul>
   `,

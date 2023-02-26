@@ -13,6 +13,8 @@ export class KbarAngularService {
   query: string = '';
   theme: Theme = {};
 
+  constructor() {}
+
   handleClose(): void {
     this.isOpen = false;
     this.query = ''; // reset query
@@ -27,5 +29,9 @@ export class KbarAngularService {
     this.query = query;
 
     this.results = getMatches(query, this.actions);
+  }
+
+  updateResults(): void {
+    this.handleSearch(this.query);
   }
 }

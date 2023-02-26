@@ -1,4 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { KbarAngularService } from '../../kbar-angular.service';
 import { Action, Theme } from '../../types';
 
@@ -14,6 +14,7 @@ export class KbarComponent {
   @Input()
   set actions(actions: Action[]) {
     this._kbarService.actions = actions;
+    this._kbarService.updateResults();
   }
 
   @Input()

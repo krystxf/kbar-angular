@@ -9,33 +9,46 @@ import { Actions } from 'kbar-angular';
 export class AppComponent {
   darkMode: boolean = false;
 
-  actions: Actions = [
-    {
-      name: 'Go to Github',
-      keywords: [
-        'github',
-        'repo',
-        'repository',
-        'source',
-        'code',
-        'documentation',
-      ],
-      perform: () =>
-        (document.location.href = 'https://github.com/krystxf/kbar-angular'),
-    },
-    {
-      name: 'Light mode',
-      keywords: ['light', 'mode'],
-      perform: () => (this.darkMode = false),
-      closeOnSelect: false,
-    },
-    {
-      name: 'Dark mode',
-      keywords: ['dark', 'mode'],
-      perform: () => (this.darkMode = true),
-      closeOnSelect: false,
-    },
-  ];
+  counter: number = 0;
+
+  get actions(): Actions {
+    return [
+      {
+        name: `Counter: ${this.counter} - Click to increment ${
+          this.counter > 0 ? '(reactivity works!)' : ''
+        }`,
+        keywords: ['plus', 'add'],
+        perform: () => {
+          this.counter++;
+        },
+        closeOnSelect: false,
+      },
+      {
+        name: 'Go to Github',
+        keywords: [
+          'github',
+          'repo',
+          'repository',
+          'source',
+          'code',
+          'documentation',
+        ],
+        perform: () => window.open('https://github.com/krystxf/kbar-angular'),
+      },
+      {
+        name: 'Light mode',
+        keywords: ['light', 'mode'],
+        perform: () => (this.darkMode = false),
+        closeOnSelect: false,
+      },
+      {
+        name: 'Dark mode',
+        keywords: ['dark', 'mode'],
+        perform: () => (this.darkMode = true),
+        closeOnSelect: false,
+      },
+    ];
+  }
 
   CLASS_EXAMPLE = `
   actions = [

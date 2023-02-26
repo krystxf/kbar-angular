@@ -1,24 +1,64 @@
-# KbarAngular
+# kbar
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+Angular library inspired by [kbar React library](https://github.com/timc1/kbar)
 
-## Code scaffolding
+Provides plug-n-play tool for efficient navigation on your website.
 
-Run `ng generate component component-name --project kbar-angular` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project kbar-angular`.
-> Note: Don't forget to add `--project kbar-angular` or else it will be added to the default project in your `angular.json` file. 
+## Features
 
-## Build
+todo
 
-Run `ng build kbar-angular` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Publishing
+```bash
+npm i kbar-angular
+```
 
-After building your library with `ng build kbar-angular`, go to the dist folder `cd dist/kbar-angular` and run `npm publish`.
+- Add `KbarAngularModule` to `app.module.ts` to `imports` array
 
-## Running unit tests
+- _to access components service, add `KbarAngularService` to `providers` array_
 
-Run `ng test kbar-angular` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**component class**
 
-## Further help
+```typescript
+actions = [
+  {
+    name: "Home",
+    keywords: ["home"],
+    perform: () => {
+      document.location.href = "/";
+    },
+  },
+  {
+    name: "Console.log",
+    keywords: ["log", "console"],
+    perform: () => {
+      console.log("Hello world!");
+    },
+  },
+];
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**component template**
+
+```html
+<kbar [actions]="actions">
+  <kbar-overlay />
+
+  <kbar-positioner>
+    <kbar-search></kbar-search>
+    <kbar-results></kbar-results>
+  </kbar-positioner>
+</kbar>
+```
+
+## Development
+
+- install dependencies and make sure you're using correct node version
+  ```bash
+  nvm use
+  npm i
+  ```
+- build library `npm run lib:build`
+- build library in watch mode `ng build kbar-angular --watch`
+- run the documentation page `npm run example:start`

@@ -17,7 +17,7 @@ export class KbarComponent {
   }
 
   @Input()
-  set theme(theme: Theme[]) {
+  set theme(theme: Theme) {
     this._kbarService.theme = theme;
   }
 

@@ -6,8 +6,8 @@ import { KbarAngularService } from '../../kbar-angular.service';
   styleUrls: ['./overlay.component.css'],
   template: `
     <div
-      [ngClass]="{ overlay: !unstyled }"
       (click)="onClick($event)"
+      [class.overlay]="!unstyled"
       [style]="style"
       [ngStyle]="ngStyle"
     >
@@ -16,7 +16,7 @@ import { KbarAngularService } from '../../kbar-angular.service';
   `,
 })
 export class OverlayComponent {
-  @Input() unstyled: boolean = false;
+  @Input() unstyled?: boolean | undefined | null = false;
   @Input() style: any = {};
   @Input() ngStyle: { [klass: string]: any } = {};
   @Output() handleClick: EventEmitter<MouseEvent> = new EventEmitter();

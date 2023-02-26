@@ -1,12 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { KbarAngularService } from '../../kbar-angular.service';
 
 @Component({
   selector: 'kbar-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss'],
+  styleUrls: ['./search.component.css'],
+  template: `
+    <input
+      type="text"
+      name="query"
+      [placeholder]="placeholder"
+      autofocus
+      (keyup)="getValue($event)"
+      [value]="kbarServiceInstance.query"
+      [class.search]="!unstyled"
+      [style]="style"
+      [ngStyle]="ngStyle"
+    />
+  `,
 })
 export class SearchComponent {
+  @Input() unstyled?: boolean | undefined | null = false;
+  @Input() style: any = {};
+  @Input() ngStyle: { [klass: string]: any } = {};
+  @Input() placeholder?: string | undefined | null = '';
+
   constructor(private _kbarService: KbarAngularService) {}
 
   get kbarServiceInstance(): KbarAngularService {

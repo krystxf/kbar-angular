@@ -1,16 +1,24 @@
 import { Component, HostListener, Input } from '@angular/core';
 import { KbarAngularService } from '../../kbar-angular.service';
-import { Action } from '../../types/actions';
+import { Action, Theme } from '../../types';
 
 @Component({
   selector: 'kbar',
-  templateUrl: './kbar.component.html',
-  styleUrls: ['./kbar.component.scss'],
+  template: `
+    <ng-template [ngIf]="kbarServiceInstance.isOpen">
+      <ng-content></ng-content>
+    </ng-template>
+  `,
 })
 export class KbarComponent {
   @Input()
   set actions(actions: Action[]) {
     this._kbarService.actions = actions;
+  }
+
+  @Input()
+  set theme(theme: Theme[]) {
+    this._kbarService.theme = theme;
   }
 
   constructor(private _kbarService: KbarAngularService) {}

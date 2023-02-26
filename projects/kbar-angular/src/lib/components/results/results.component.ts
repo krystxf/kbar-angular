@@ -1,13 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { KbarAngularService } from '../../kbar-angular.service';
 import { Action } from '../../types/actions';
 
 @Component({
   selector: 'kbar-results',
-  templateUrl: './results.component.html',
-  styleUrls: ['./results.component.scss'],
+  styleUrls: ['./results.component.css'],
+  template: `
+    <ul>
+      <li
+        *ngFor="let item of kbarServiceInstance.results"
+        (click)="handlePerform(item, $event)"
+        [class.item]="!unstyled"
+        [style]="style"
+        [ngStyle]="ngStyle"
+      >
+        {{ item.name }}
+      </li>
+    </ul>
+  `,
 })
 export class ResultsComponent {
+  @Input() unstyled?: boolean | undefined | null = false;
+  @Input() style: any = {};
+  @Input() ngStyle: { [klass: string]: any } = {};
+
   constructor(private _kbarService: KbarAngularService) {}
 
   get kbarServiceInstance(): KbarAngularService {
@@ -16,6 +32,7 @@ export class ResultsComponent {
 
   handlePerform = (action: Action, event: MouseEvent): void => {
     action.perform(event);
-    this._kbarService.handleClose();
+
+    if (action.closeOnSelect !== false) this._kbarService.handleClose();
   };
 }

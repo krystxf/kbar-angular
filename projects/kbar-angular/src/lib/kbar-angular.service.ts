@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Action } from './types/actions';
 import getMatches from './functions/matches';
+import { Theme } from './types';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,7 @@ export class KbarAngularService {
   actions: Action[] = [];
   results: Action[] = [];
   query: string = '';
+  theme: Theme = {};
 
   handleClose(): void {
     this.isOpen = false;

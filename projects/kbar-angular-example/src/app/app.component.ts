@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Actions } from 'kbar-angular';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   darkMode: boolean = false;
 
-  actions = [
+  actions: Actions = [
     {
       name: 'Go to Github',
       keywords: [
@@ -26,11 +27,13 @@ export class AppComponent {
       name: 'Light mode',
       keywords: ['light', 'mode'],
       perform: () => (this.darkMode = false),
+      closeOnSelect: false,
     },
     {
       name: 'Dark mode',
       keywords: ['dark', 'mode'],
       perform: () => (this.darkMode = true),
+      closeOnSelect: false,
     },
   ];
 

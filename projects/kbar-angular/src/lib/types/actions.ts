@@ -7,7 +7,7 @@ export type Action = {
   section?: string | undefined | null;
   icon?: any | undefined | null;
   subtitle?: string | undefined | null;
-  perform?: (event: MouseEvent) => void | undefined | null;
+  perform?: (event: Event) => void | undefined | null;
   closeOnSelect?: boolean | undefined | null;
   parent?: string | undefined | null;
 };

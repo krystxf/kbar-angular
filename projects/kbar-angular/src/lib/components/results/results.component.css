@@ -9,28 +9,3 @@ ul {
 
   height: fit-content;
 }
-
-.item {
-  padding: 12px 16px;
-  cursor: pointer;
-
-  display: flex;
-  align-items: center;
-
-  transition: background-color 0.2s ease;
-
-  border-left-color: transparent;
-  border-left-style: solid;
-  border-left-width: 2px;
-}
-
-.item:hover {
-  background-color: #eee;
-
-  border-left-color: #000;
-}
-
-.item:last-child {
-  border-bottom: none;
-  margin-bottom: 8px;
-}

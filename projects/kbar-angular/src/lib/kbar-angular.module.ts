@@ -8,6 +8,7 @@ import { ResultsComponent } from './components/results/results.component';
 import { OverlayComponent } from './components/overlay/overlay.component';
 
 import { KbarAngularService } from './kbar-angular.service';
+import { ResultComponent } from './components/result/result.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { KbarAngularService } from './kbar-angular.service';
     PositionerComponent,
     SearchComponent,
     ResultsComponent,
+    ResultComponent,
   ],
   imports: [BrowserModule],
   providers: [KbarAngularService],

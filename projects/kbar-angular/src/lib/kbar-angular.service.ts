@@ -31,11 +31,11 @@ export class KbarAngularService {
     this.query = query;
 
     const filtered = this.actions.filter((action) => {
-      // If there is no submenu, return all actions with no parent
-      if (this.submenu === null)
-        return action.parent == null || action.parent === '';
-      // Else return all actions with the current submenu as parent
-      else return action.parent === this.submenu;
+      if (!this.submenu && this.query.length > 0) return true;
+
+      if (this.submenu !== null) return action.parent === this.submenu;
+
+      return action.parent == null || action.parent === '';
     });
 
     this.results = getMatches(query, filtered);

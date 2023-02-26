@@ -8,15 +8,13 @@ import hasChildren from '../../functions/hasChildren';
   styleUrls: ['./results.component.css'],
   template: `
     <ul>
-      <li
-        *ngFor="let item of kbarServiceInstance.results"
-        (click)="handlePerform(item, $event)"
+      <kbar-result
+        *ngFor="let action of kbarServiceInstance.results"
+        [action]="action"
         [class.item]="!unstyled"
         [style]="style"
         [ngStyle]="ngStyle"
-      >
-        {{ item.name }}
-      </li>
+      ></kbar-result>
     </ul>
   `,
 })
@@ -30,28 +28,4 @@ export class ResultsComponent {
   get kbarServiceInstance(): KbarAngularService {
     return this._kbarService;
   }
-
-  handlePerform = (action: Action, event: MouseEvent): void => {
-    if (typeof action?.perform === 'function') action.perform(event);
-
-    const isParent = hasChildren(action.id, this._kbarService.actions);
-
-    if (isParent) {
-      this._kbarService.submenu = action.id;
-      this._kbarService.query = '';
-
-      // only close kbar if explicitly specified
-      if (action.closeOnSelect === true) {
-        console.warn(
-          'Element has children, are you sure you want to close the kbar?'
-        );
-
-        this._kbarService.handleClose();
-      }
-    }
-    // Close the kbar if the action doesn't specify otherwise
-    else if (action.closeOnSelect !== false) {
-      this._kbarService.handleClose();
-    }
-  };
 }

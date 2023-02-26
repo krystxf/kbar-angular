@@ -33,8 +33,7 @@ export class AppComponent {
           'code',
           'documentation',
         ],
-        perform: () =>
-          (document.location.href = 'https://github.com/krystxf/kbar-angular'),
+        perform: () => window.open('https://github.com/krystxf/kbar-angular'),
       },
       {
         name: 'Light mode',

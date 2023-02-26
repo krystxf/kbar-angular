@@ -1,5 +1,5 @@
 .positioner {
-  position: absolute;
+  position: fixed;
   top: 20%;
   left: 50%;
   z-index: 505;

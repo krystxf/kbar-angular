@@ -4,8 +4,10 @@ ul {
   margin: 0;
 
   overflow-y: auto;
-  max-height: 250px;
+  max-height: 400px;
   border-radius: 0 0 8px 8px;
+
+  height: fit-content;
 }
 
 .item {

@@ -31,7 +31,7 @@ export class ResultsComponent {
   }
 
   handlePerform = (action: Action, event: MouseEvent): void => {
-    action.perform(event);
+    if (typeof action?.perform === 'function') action.perform(event);
 
     // Close the kbar if the action doesn't specify otherwise
     if (action.closeOnSelect !== false) this._kbarService.handleClose();

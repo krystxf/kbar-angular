@@ -1,10 +1,13 @@
 export type Actions = Action[];
 
 export type Action = {
+  id: string;
   name: string;
-  perform: (event: MouseEvent) => void;
   keywords?: string[];
-  closeOnSelect?: boolean | undefined | null;
+  section?: string | undefined | null;
   icon?: any | undefined | null;
-  group?: string | undefined | null;
+  subtitle?: string | undefined | null;
+  perform?: (event: MouseEvent) => void | undefined | null;
+  closeOnSelect?: boolean | undefined | null;
+  parent?: string | undefined | null;
 };

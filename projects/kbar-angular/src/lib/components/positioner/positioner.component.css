@@ -3,7 +3,7 @@
   top: 20%;
   left: 50%;
   z-index: 505;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
   width: calc(100% - 40px);
   max-width: 600px;
 
@@ -12,5 +12,24 @@
 
   background-color: #fcfcfc;
   border-radius: 8px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 6px 20px rgb(0 0 0 / 20%);
+}
+
+.positioner.animated {
+  animation: appearance 125ms ease-in forwards;
+}
+
+@keyframes appearance {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0%) scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, 0%) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0%) scale(1);
+  }
 }

@@ -14,6 +14,22 @@ export class AppComponent {
   get actions(): Actions {
     return [
       {
+        id: 'github',
+        name: 'Go to Github',
+        keywords: [
+          'github',
+          'repo',
+          'repository',
+          'source',
+          'code',
+          'documentation',
+        ],
+        perform: () => {
+          window.open('https://github.com/krystxf/kbar-angular');
+        },
+      },
+      {
+        id: 'counter',
         name: `Counter: ${this.counter} - Click to increment ${
           this.counter > 0 ? '(reactivity works!)' : ''
         }`,
@@ -24,28 +40,27 @@ export class AppComponent {
         closeOnSelect: false,
       },
       {
-        name: 'Go to Github',
-        keywords: [
-          'github',
-          'repo',
-          'repository',
-          'source',
-          'code',
-          'documentation',
-        ],
-        perform: () => window.open('https://github.com/krystxf/kbar-angular'),
+        id: 'theme-menu',
+        name: 'Change theme',
+        keywords: ['dark', 'light', 'mode'],
       },
       {
+        id: 'light-mode',
         name: 'Light mode',
         keywords: ['light', 'mode'],
-        perform: () => (this.darkMode = false),
-        closeOnSelect: false,
+        perform: () => {
+          this.darkMode = false;
+        },
+        parent: 'theme-menu',
       },
       {
+        id: 'dark-mode',
         name: 'Dark mode',
         keywords: ['dark', 'mode'],
-        perform: () => (this.darkMode = true),
-        closeOnSelect: false,
+        perform: () => {
+          this.darkMode = true;
+        },
+        parent: 'theme-menu',
       },
     ];
   }

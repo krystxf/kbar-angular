@@ -18,13 +18,16 @@ ul {
   align-items: center;
 
   transition: background-color 0.2s ease;
+
+  border-left-color: transparent;
+  border-left-style: solid;
+  border-left-width: 2px;
 }
 
 .item:hover {
   background-color: #eee;
 
-  border-left: 2px solid #000;
-  padding-left: 14px; /* 16 - 2 (compensate border) */
+  border-left-color: #000;
 }
 
 .item:last-child {

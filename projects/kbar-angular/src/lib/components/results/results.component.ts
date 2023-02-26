@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { KbarAngularService } from '../../kbar-angular.service';
 import { Action } from '../../types/actions';
+import hasChildren from '../../functions/hasChildren';
 
 @Component({
   selector: 'kbar-results',
@@ -33,7 +34,24 @@ export class ResultsComponent {
   handlePerform = (action: Action, event: MouseEvent): void => {
     if (typeof action?.perform === 'function') action.perform(event);
 
+    const isParent = hasChildren(action.id, this._kbarService.actions);
+
+    if (isParent) {
+      this._kbarService.submenu = action.id;
+      this._kbarService.query = '';
+
+      // only close kbar if explicitly specified
+      if (action.closeOnSelect === true) {
+        console.warn(
+          'Element has children, are you sure you want to close the kbar?'
+        );
+
+        this._kbarService.handleClose();
+      }
+    }
     // Close the kbar if the action doesn't specify otherwise
-    if (action.closeOnSelect !== false) this._kbarService.handleClose();
+    else if (action.closeOnSelect !== false) {
+      this._kbarService.handleClose();
+    }
   };
 }

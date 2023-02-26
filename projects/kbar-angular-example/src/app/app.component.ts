@@ -29,6 +29,14 @@ export class AppComponent {
         },
       },
       {
+        id: 'hello',
+        name: 'Hello world!',
+        keywords: ['alert'],
+        perform: () => {
+          alert('Hello world!');
+        },
+      },
+      {
         id: 'counter',
         name: `Counter: ${this.counter} - Click to increment ${
           this.counter > 0 ? '(reactivity works!)' : ''

@@ -1,6 +1,7 @@
 export type Actions = Action[];
 
 export type Action = {
+  index?: number;
   id: string;
   name: string;
   keywords?: string[];
@@ -10,4 +11,10 @@ export type Action = {
   perform?: (event: Event) => void | undefined | null;
   closeOnSelect?: boolean | undefined | null;
   parent?: string | undefined | null;
+  group?: string | undefined | null;
+};
+
+export type Group = {
+  name: string | null;
+  actions: Action[];
 };

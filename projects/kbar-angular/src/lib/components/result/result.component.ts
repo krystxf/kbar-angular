@@ -11,7 +11,7 @@ import { Action } from '../../types/actions';
       [class.item]="!unstyled"
       [style]="style"
       [ngStyle]="ngStyle"
-      [class.active]="kbarServiceInstance.focusedIndex === index"
+      [class.active]="active"
     >
       <ng-container
         *ngIf="parent && parent.id !== this.kbarServiceInstance.submenu"
@@ -26,10 +26,10 @@ import { Action } from '../../types/actions';
 })
 export class ResultComponent {
   @Input() unstyled?: boolean | undefined | null = false;
+  @Input() active?: boolean | undefined | null = false;
   @Input() style: any = {};
   @Input() ngStyle: { [klass: string]: any } = {};
   @Input() action!: Action;
-  @Input() index!: number;
 
   constructor(private _kbarService: KbarAngularService) {}
 

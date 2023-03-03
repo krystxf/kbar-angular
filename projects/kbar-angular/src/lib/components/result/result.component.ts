@@ -13,6 +13,7 @@ import { Action } from '../../types/actions';
       [ngStyle]="ngStyle"
       [class.active]="active"
     >
+      <!-- Parent name -->
       <ng-container
         *ngIf="parent && parent.id !== this.kbarServiceInstance.submenu"
       >

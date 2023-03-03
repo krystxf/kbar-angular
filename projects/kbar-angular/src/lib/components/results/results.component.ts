@@ -13,7 +13,7 @@ import groupResults from '../../functions/groupResults';
           {{ group.name }}
         </div>
         <kbar-result
-          *ngFor="let action of group.actions; let i = index"
+          *ngFor="let action of group.actions"
           [action]="action"
           [class.item]="!unstyled"
           [style]="style"
@@ -36,8 +36,6 @@ export class ResultsComponent {
   }
 
   get groupedActions(): Group[] {
-    console.log(groupResults(this.kbarServiceInstance.results));
-
     return groupResults(this.kbarServiceInstance.results);
   }
 }

@@ -1,7 +1,6 @@
 export type Actions = Action[];
 
 export type Action = {
-  index?: number;
   id: string;
   name: string;
   keywords?: string[];
@@ -16,5 +15,5 @@ export type Action = {
 
 export type Group = {
   name: string | null;
-  actions: Action[];
+  actions: (Action & { index: number })[];
 };

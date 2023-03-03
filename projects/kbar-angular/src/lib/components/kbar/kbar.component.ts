@@ -40,6 +40,15 @@ export class KbarComponent {
     }
   }
 
+  // esc
+  @HostListener('document:keydown.esc', ['$event'])
+  onEsc(event: KeyboardEvent): void | boolean {
+    if (this._kbarService.isOpen) {
+      event.preventDefault();
+      this._kbarService.handleClose();
+    }
+  }
+
   // ↑
   @HostListener('document:keydown.arrowup', ['$event'])
   onUp(event: KeyboardEvent): void | boolean {

@@ -1,13 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
 
 import { KbarAngularModule, KbarAngularService } from 'kbar-angular';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
+import { DocumentationComponent } from './pages/documentation/documentation.component';
+import { CodeComponent } from './components/code/code.component';
+import { ContentMenuComponent } from './components/content-menu/content-menu.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, KbarAngularModule],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    DocumentationComponent,
+    CodeComponent,
+    ContentMenuComponent,
+  ],
+  imports: [BrowserModule, KbarAngularModule, AppRoutingModule],
   providers: [KbarAngularService],
   bootstrap: [AppComponent],
 })

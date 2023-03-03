@@ -10,4 +10,10 @@ export type Action = {
   perform?: (event: Event) => void | undefined | null;
   closeOnSelect?: boolean | undefined | null;
   parent?: string | undefined | null;
+  group?: string | undefined | null;
+};
+
+export type Group = {
+  name: string | null;
+  actions: (Action & { index: number })[];
 };

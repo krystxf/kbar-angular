@@ -1,9 +1,10 @@
 import { Action } from '../types/actions';
 import Fuse from 'fuse.js';
+import isQueryEmpty from './isQueryEmpty';
 
 const getMatches = (query: string, actions: Action[]): Action[] => {
   // If the query is empty, return all actions
-  if (query === '' || [...query].every((x) => x === ' ')) {
+  if (isQueryEmpty(query)) {
     return actions;
   }
 

@@ -32,7 +32,21 @@ export class KbarComponent {
   @HostListener('document:keydown.control.k', ['$event'])
   onCtrlK(event: KeyboardEvent): void | boolean {
     event.preventDefault();
-    this._kbarService.handleOpen();
+
+    if (this._kbarService.isOpen) {
+      this._kbarService.handleClose();
+    } else {
+      this._kbarService.handleOpen();
+    }
+  }
+
+  // esc
+  @HostListener('document:keydown.esc', ['$event'])
+  onEsc(event: KeyboardEvent): void | boolean {
+    if (this._kbarService.isOpen) {
+      event.preventDefault();
+      this._kbarService.handleClose();
+    }
   }
 
   // ↑

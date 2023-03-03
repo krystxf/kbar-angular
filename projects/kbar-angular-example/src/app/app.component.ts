@@ -51,6 +51,7 @@ export class AppComponent {
         id: 'theme-menu',
         name: 'Change theme',
         keywords: ['dark', 'light', 'mode'],
+        group: 'preferences',
       },
       {
         id: 'light-mode',

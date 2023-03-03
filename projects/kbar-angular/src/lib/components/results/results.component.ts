@@ -1,20 +1,27 @@
 import { Component, Input } from '@angular/core';
 import { KbarAngularService } from '../../kbar-angular.service';
+import { Group } from '../../types';
+import groupResults from '../../functions/groupResults';
 
 @Component({
   selector: 'kbar-results',
   styleUrls: ['./results.component.css'],
   template: `
-    <ul>
-      <kbar-result
-        *ngFor="let action of kbarServiceInstance.results; let i = index"
-        [action]="action"
-        [class.item]="!unstyled"
-        [style]="style"
-        [ngStyle]="ngStyle"
-        [index]="i"
-      ></kbar-result>
-    </ul>
+    <div>
+      <div *ngFor="let group of groupedActions; let groupIndex = index">
+        <div *ngIf="group.name" class="group-name">
+          {{ group.name }}
+        </div>
+        <kbar-result
+          *ngFor="let action of group.actions"
+          [action]="action"
+          [class.item]="!unstyled"
+          [style]="style"
+          [ngStyle]="ngStyle"
+          [active]="kbarServiceInstance.focusedIndex === action.index"
+        ></kbar-result>
+      </div>
+    </div>
   `,
 })
 export class ResultsComponent {
@@ -26,5 +33,9 @@ export class ResultsComponent {
 
   get kbarServiceInstance(): KbarAngularService {
     return this._kbarService;
+  }
+
+  get groupedActions(): Group[] {
+    return groupResults(this.kbarServiceInstance.results);
   }
 }

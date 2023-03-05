@@ -29,4 +29,4 @@ import { ResultComponent } from './components/result/result.component';
     ResultsComponent,
   ],
 })
-export class KbarAngularModule {}
+export class KbarModule {}

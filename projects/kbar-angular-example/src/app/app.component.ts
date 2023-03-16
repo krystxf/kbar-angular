@@ -8,26 +8,24 @@ type Theme = 'dark' | 'light';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  _theme: Theme = 'light';
   counter: number = 0;
 
   @HostListener('window:storage', ['$event'])
   onStorageChange() {
-    this.theme = this.theme;
+    this.setTheme(this.getTheme());
   }
 
   constructor() {
-    this.theme = this.theme;
+    this.setTheme(this.getTheme());
   }
 
-  get theme(): Theme {
+  getTheme(): Theme {
     const raw = localStorage.getItem('theme');
 
     return raw === 'dark' ? 'dark' : 'light';
   }
 
-  set theme(theme: Theme) {
-    this._theme = theme;
+  setTheme(theme: Theme) {
     localStorage.setItem('theme', theme);
 
     if (theme === 'dark') {
@@ -84,7 +82,7 @@ export class AppComponent {
         name: 'Light mode',
         keywords: ['light', 'mode'],
         perform: () => {
-          this.theme = 'light';
+          this.setTheme('light');
         },
         parent: 'theme-menu',
       },
@@ -93,7 +91,7 @@ export class AppComponent {
         name: 'Dark mode',
         keywords: ['dark', 'mode'],
         perform: () => {
-          this.theme = 'dark';
+          this.setTheme('dark');
         },
         parent: 'theme-menu',
       },

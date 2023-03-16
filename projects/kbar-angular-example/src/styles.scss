@@ -5,8 +5,43 @@
 
 html,
 body {
-  margin: 0;
-  padding: 0;
+  @apply font-sans p-0 m-0 bg-white dark:bg-neutral-900 text-zinc-900 dark:text-zinc-50;
+}
 
-  font-family: "Inter", sans-serif;
+main {
+  @apply max-w-6xl mx-auto p-4;
+}
+
+h1 {
+  @apply text-4xl font-bold;
+}
+
+h2 {
+  @apply text-2xl font-bold;
+}
+
+h3 {
+  @apply text-xl font-bold;
+}
+
+h4 {
+  @apply text-lg font-bold;
+}
+
+h5 {
+  @apply text-base font-bold;
+}
+
+p {
+  @apply text-base;
+}
+
+a {
+  @apply text-blue-500;
+}
+
+pre {
+  code {
+    @apply font-mono block px-2 py-1 rounded-md text-base bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200;
+  }
 }

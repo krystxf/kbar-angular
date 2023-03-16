@@ -1,15 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Actions } from 'kbar-angular';
+
+type Theme = 'dark' | 'light';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  darkMode: boolean = false;
-
+  _theme: Theme = 'light';
   counter: number = 0;
+
+  @HostListener('window:storage', ['$event'])
+  onStorageChange() {
+    this.theme = this.theme;
+  }
+
+  constructor() {
+    this.theme = this.theme;
+  }
+
+  get theme(): Theme {
+    const raw = localStorage.getItem('theme');
+
+    return raw === 'dark' ? 'dark' : 'light';
+  }
+
+  set theme(theme: Theme) {
+    this._theme = theme;
+    localStorage.setItem('theme', theme);
+
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }
 
   get actions(): Actions {
     return [
@@ -58,7 +84,7 @@ export class AppComponent {
         name: 'Light mode',
         keywords: ['light', 'mode'],
         perform: () => {
-          this.darkMode = false;
+          this.theme = 'light';
         },
         parent: 'theme-menu',
       },
@@ -67,7 +93,7 @@ export class AppComponent {
         name: 'Dark mode',
         keywords: ['dark', 'mode'],
         perform: () => {
-          this.darkMode = true;
+          this.theme = 'dark';
         },
         parent: 'theme-menu',
       },

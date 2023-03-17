@@ -63,8 +63,7 @@
               "projects/kbar-angular-example/src/assets"
             ],
             "styles": [
-              "projects/kbar-angular-example/src/styles.scss",
-              "projects/kbar-angular-example/src/variables.scss"
+              "projects/kbar-angular-example/src/styles/global.scss"
             ],
             "scripts": []
           },

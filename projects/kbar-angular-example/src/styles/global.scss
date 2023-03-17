@@ -5,11 +5,7 @@
 
 html,
 body {
-  @apply font-sans p-0 m-0 bg-white dark:bg-neutral-900 text-zinc-900 dark:text-zinc-300;
-}
-
-main {
-  @apply max-w-5xl mx-auto p-4;
+  @apply font-sans p-0 m-0 bg-white dark:bg-neutral-900 text-zinc-900 dark:text-zinc-300 min-h-screen;
 }
 
 h1 {
@@ -42,4 +38,8 @@ a {
 
 ul {
   @apply list-disc list-inside text-base py-2 pl-4;
+}
+
+kbd {
+  @apply mx-1 px-2 py-1 rounded-md text-base bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-300;
 }

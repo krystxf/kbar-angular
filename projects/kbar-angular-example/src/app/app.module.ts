@@ -6,7 +6,7 @@ import { KbarModule, KbarAngularService } from 'kbar-angular';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
-import { DocumentationComponent } from './pages/documentation/documentation.component';
+import { DocsComponent as DocsComponent } from './pages/docs/docs';
 import { CodeComponent } from './components/code-snippet/code-snippet.component';
 import { ContentMenuComponent } from './components/content-menu/content-menu.component';
 import { CodeInlineComponent } from './components/code-inline/code-inline.component';
@@ -15,7 +15,7 @@ import { CodeInlineComponent } from './components/code-inline/code-inline.compon
   declarations: [
     AppComponent,
     HomeComponent,
-    DocumentationComponent,
+    DocsComponent,
     CodeComponent,
     ContentMenuComponent,
     CodeInlineComponent,

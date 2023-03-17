@@ -5,9 +5,22 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  CLASS_EXAMPLE = `
-  actions = [
+  APP_MODULE_EXAMPLE = `import { KbarModule } from 'kbar-angular';
+
+@NgModule({
+  imports: [
+      KbarModule
+  ]
+})`;
+
+  CLASS_EXAMPLE = `import { Actions } from 'kbar-angular';
+
+...
+
+export class AppComponent {
+  actions: Actions = [
     {
+      id: "home",
       name: "Home",
       keywords: ["home"],
       perform: () => {
@@ -15,23 +28,22 @@ export class HomeComponent {
       },
     },
     {
+      id: "test",
       name: "Console.log",
       keywords: ["log", "console"],
       perform: () => {
         console.log("Hello world!");
       },
     },
-  ]; 
-  `;
+  ];
+}`;
 
-  TEMPLATE_EXAMPLE = `
-  <kbar [actions]="actions">
-    <kbar-overlay />
+  TEMPLATE_EXAMPLE = `<kbar [actions]="actions">
+  <kbar-overlay></kbar-overlay>
 
-    <kbar-positioner>
-      <kbar-search></kbar-search>
-      <kbar-results></kbar-results>
-    </kbar-positioner>
-  </kbar>
-  `;
+  <kbar-positioner>
+    <kbar-search></kbar-search>
+    <kbar-results></kbar-results>
+  </kbar-positioner>
+</kbar>`;
 }

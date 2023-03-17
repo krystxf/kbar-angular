@@ -1,27 +1,50 @@
 <main>
-    <div class="flex w-full justify-center">
-        <div>⌘</div>
-        <h1>kbar-angular</h1>
-    </div>
-
+    <div class="text-7xl m-auto w-fit">⌘</div>
+    <h1 class="m-auto w-fit pb-11">kbar angular</h1>
     <p>
         <a href="https://github.com/krystxf/kbar-angular" target="_blank">kbar</a> is a fully extensible command+k
         interface for your site.
-        <br />
-        <br />
+        <br>
         try it out by pressing <kbd>ctrl</kbd> + <kbd>k</kbd>
     </p>
 
     <h2>Features</h2>
-    // todo
+    <ul>
+        <li>Extensible</li>
+        <li>Customizable</li>
+        <li>Easy to use</li>
+        <li>Lightweight</li>
+    </ul>
 
-    <h2>Example</h2>
-    <h3>component class</h3>
-    <app-code-snippet [code]="CLASS_EXAMPLE"></app-code-snippet>
-    <h3>component template</h3>
+    <h2>Getting started</h2>
+
+    <h3>Install package</h3>
+    <p>
+        <app-code-snippet code="npm i kbar-angular"></app-code-snippet>
+        or if you use yarn
+        <app-code-snippet code="yarn add kbar-angular"></app-code-snippet>
+    </p>
+    <h3>Import <app-code-inline code="KbarModule"></app-code-inline> into your app's modules</h3>
+    <app-code-snippet [code]="APP_MODULE_EXAMPLE"></app-code-snippet>
+
+    <h3>Add <app-code-inline code="kbar"></app-code-inline> component to your app's template</h3>
     <app-code-snippet [code]="TEMPLATE_EXAMPLE"></app-code-snippet>
 
+    <h3>Define actions in your components class</h3>
+    <app-code-snippet [code]="CLASS_EXAMPLE"></app-code-snippet>
 
-    <h2>Customization</h2>
-    // todo
+    <h4>For more detailed description check out <a href="/docs">docs</a></h4>
+
+    <footer class="pt-8">
+        <div class="flex justify-between max-w-xl m-auto pt-8">
+            <a href="https://github.com/krystxf/kbar-angular">Source code</a>
+            <a href="https://www.npmjs.com/package/kbar-angular">NPM package</a>
+            <a href="https://kbar-angular.vercel.app/docs">Docs</a>
+            <a href="https://github.com/krystxf/kbar-angular/issues">Create issue / feature request</a>
+        </div>
+
+        <div class="flex justify-center pt-4">
+            Made with ❤️ by <a href="https://github.com/krystxf" class="px-2">Krystof</a>
+        </div>
+    </footer>
 </main>

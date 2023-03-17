@@ -5,7 +5,18 @@ type Theme = 'dark' | 'light';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `
+    <router-outlet></router-outlet>
+
+    <kbar [actions]="actions">
+      <kbar-overlay></kbar-overlay>
+
+      <kbar-positioner>
+        <kbar-search placeholder="Type command or search..."></kbar-search>
+        <kbar-results></kbar-results>
+      </kbar-positioner>
+    </kbar>
+  `,
 })
 export class AppComponent {
   counter: number = 0;

@@ -5,11 +5,11 @@
 
 html,
 body {
-  @apply font-sans p-0 m-0 bg-white dark:bg-neutral-900 text-zinc-900 dark:text-zinc-50;
+  @apply font-sans p-0 m-0 bg-white dark:bg-neutral-900 text-zinc-900 dark:text-zinc-300;
 }
 
 main {
-  @apply max-w-6xl mx-auto p-4;
+  @apply max-w-5xl mx-auto p-4;
 }
 
 h1 {
@@ -17,11 +17,11 @@ h1 {
 }
 
 h2 {
-  @apply text-2xl font-bold;
+  @apply text-2xl font-bold pt-4;
 }
 
 h3 {
-  @apply text-xl font-bold;
+  @apply text-xl font-bold pt-4;
 }
 
 h4 {
@@ -37,11 +37,9 @@ p {
 }
 
 a {
-  @apply text-blue-500;
+  @apply text-blue-500 hover:text-blue-600 hover:underline;
 }
 
-pre {
-  code {
-    @apply font-mono block px-2 py-1 rounded-md text-base bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200;
-  }
+ul {
+  @apply list-disc list-inside text-base py-2 pl-4;
 }
